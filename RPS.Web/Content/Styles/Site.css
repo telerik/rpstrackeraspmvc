@@ -9,12 +9,24 @@
     vertical-align: text-bottom;
 }
 
+.btn-group > .btn-light {
+    border: 1px solid lightgray;
+}
+
+.distance-left {
+    margin-left: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
 /*
    * Sidebar
    */
 
 .sidebar {
-    position: fixed;
+    position: relative;
     top: 0;
     bottom: 0;
     left: 0;
