@@ -1,0 +1,26 @@
+<script>
+
+    document.addEventListener('click', function (event) {
+
+        // Check if the clicked element or its parent is the update button
+        let targetElement = event.target;
+        if (!targetElement.matches('.pt-btn-task-update')) {
+            targetElement = targetElement.closest('.pt-btn-task-update');
+            if (!targetElement) return;
+        }
+
+        let btnObj = $(targetElement);
+        let itemId = $('#ItemId').val();
+        let taskId = btnObj.attr('data-task-id');
+        let newTitle = $('#pt-task-input-' + taskId).val();
+        let checked = $('#pt-task-checkbox-' + taskId).prop('checked');
+
+        // Build the URL with parameters - Updated to use Detail controller
+        let updateUrl = `/Detail/${itemId}/TaskUpdate/${taskId}?completed=${checked}&title=${encodeURIComponent(newTitle)}`;
+
+        // Set the formaction attribute
+        btnObj.attr('formaction', updateUrl);
+
+    }, false);
+
+</script>

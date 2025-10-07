@@ -11,27 +11,14 @@ namespace RPS.Web.Models.ViewModels
         public DateTime? DateStart { get; set;}
         public DateTime? DateEnd { get; set; }
 
-        public int IssueCountOpen { get; set; }
-        public int IssueCountClosed { get; set; }
+        public PtDashboardStatusCounts StatusCounts { get; set; }
 
-        public int IssueCountActive { get { return IssueCountOpen + IssueCountClosed; } }
-        public decimal IssueCloseRate
+        public PtDashboardFilteredIssues FilteredIssues { get; set; }
+
+        public PtDashboardVm(PtDashboardStatusCounts statusCounts, PtDashboardFilteredIssues filteredIssues)
         {
-            get
-            {
-                if (IssueCountActive == 0)
-                {
-                    return 0m;
-                }
-                return Math.Round((decimal)IssueCountClosed / (decimal)IssueCountActive * 100m, 2);
-            }
-        }
-
-
-        public PtDashboardVm(PtDashboardStatusCounts statusCounts)
-        {
-            IssueCountOpen = statusCounts.OpenItemsCount;
-            IssueCountClosed = statusCounts.ClosedItemsCount;
+            StatusCounts = statusCounts;
+            FilteredIssues = filteredIssues;
         }
     }
 }
