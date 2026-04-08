@@ -39,8 +39,9 @@ namespace RPS.Web.Controllers
             };
 
             var statusCounts = rpsDashRepo.GetStatusCounts(filter);
+            var filteredIssues = rpsDashRepo.GetFilteredIssues(filter);
 
-            PtDashboardVm vm = new PtDashboardVm(statusCounts);
+            PtDashboardVm vm = new PtDashboardVm(statusCounts, filteredIssues);
 
             if (months.HasValue)
             {

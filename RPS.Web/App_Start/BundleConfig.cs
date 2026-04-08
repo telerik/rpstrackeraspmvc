@@ -30,11 +30,17 @@ namespace RPS.Web
             bundles.Add(new StyleBundle("~/Content/dashboardcss").Include(
                 "~/Content/styles/dashboard.css"));
 
+            bundles.Add(new StyleBundle("~/Content/activeissuescss").Include(
+                "~/Content/Styles/active-issues.css"));
+
             bundles.Add(new StyleBundle("~/Content/backlogcss").Include(
                 "~/Content/styles/backlog.css"));
 
             bundles.Add(new StyleBundle("~/Content/detailcss").Include(
                 "~/Content/styles/detail.css"));
+
+            bundles.Add(new StyleBundle("~/Content/chitchatcss").Include(
+                "~/Content/styles/chitchat.css"));
         }
     }
 }
